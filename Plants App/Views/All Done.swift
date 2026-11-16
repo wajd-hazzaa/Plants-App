@@ -1,7 +1,18 @@
+
 import SwiftUI
 
-struct NoReminders : View {
+struct AllDone: View {
+
+    var onAdd: () -> Void
+
+    let greenColor = Color(
+        red: 51/255.0,
+        green: 128/255.0,
+        blue: 105/255.0
+    )
+
     var body: some View {
+
         VStack(spacing: 0) {
 
             // Header
@@ -24,30 +35,45 @@ struct NoReminders : View {
 
             Spacer()
 
+            // Plant Image
+            Image("Plant 2")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+
+            // Title
+            Text("All Done! 🎉")
+                .font(.system(size: 22, weight: .bold))
+                .foregroundStyle(.white)
+                .padding(.top, 20)
+
             // Description
-            Text("No reminders set yet.. ")
+            Text("All Reminders Completed")
                 .font(.system(size: 14))
+                .foregroundStyle(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 35)
                 .padding(.top, 12)
 
             Spacer()
 
-            
             // Add Button
             HStack {
                 Spacer()
 
-                Button(action: {
-                    // Add new plant action
-                }) {
+                Button {
+                    onAdd()
+                } label: {
                     Image(systemName: "plus")
-                        .font(.system(size: 24, weight: .medium))
+                        .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.white)
                         .frame(width: 50, height: 50)
-                        .background(Color(red: 51/255, green: 128/255, blue: 105/255))
-                        .clipShape(Circle())
+                        .glassEffect(
+                            .regular.tint(greenColor),
+                            in: Circle()
+                        )
                 }
+                .buttonStyle(.plain)
             }
             .padding(.horizontal, 25)
             .padding(.bottom, 25)
@@ -57,10 +83,9 @@ struct NoReminders : View {
         .background(Color.black.ignoresSafeArea())
         .preferredColorScheme(.dark)
     }
+}
 
+#Preview {
+    AllDone(onAdd: {})
+}
 
-        }
-
-        #Preview {
-            NoReminders()
-        }

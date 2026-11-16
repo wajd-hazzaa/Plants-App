@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct SetReminderView: View {
@@ -230,3 +229,4 @@ struct SetReminderView: View {
 #Preview {
     SetReminderView()
 }
+

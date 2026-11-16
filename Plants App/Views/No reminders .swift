@@ -1,8 +1,19 @@
 
 import SwiftUI
 
-struct AllDone: View {
+struct NoReminders: View {
+
+    @State private var showSetReminder = false
+
+    // Green Color
+    let greenColor = Color(
+        red: 51.0 / 255.0,
+        green: 128.0 / 255.0,
+        blue: 105.0 / 255.0
+    )
+
     var body: some View {
+
         VStack(spacing: 0) {
 
             // Header
@@ -25,22 +36,10 @@ struct AllDone: View {
 
             Spacer()
 
-            // Plant Image
-            Image("Plant 2")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-
-            // Title
-            Text("All Done! 🎉")
-                .font(.system(size: 22, weight: .bold))
-                .foregroundStyle(.white)
-                .padding(.top, 20)
-
             // Description
-            Text("All Reminders Completed")
+            Text("No reminders set yet..")
                 .font(.system(size: 14))
-                .foregroundStyle(.gray)
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 35)
                 .padding(.top, 12)
@@ -51,16 +50,19 @@ struct AllDone: View {
             HStack {
                 Spacer()
 
-                Button(action: {
-                    // Add new plant action
-                }) {
+                Button {
+                    showSetReminder = true
+                } label: {
                     Image(systemName: "plus")
-                        .font(.system(size: 24, weight: .medium))
+                        .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.white)
                         .frame(width: 50, height: 50)
-                        .background(Color(red: 51/255, green: 128/255, blue: 105/255))
-                        .clipShape(Circle())
+                        .glassEffect(
+                            .regular.tint(greenColor),
+                            in: Circle()
+                        )
                 }
+                .buttonStyle(.plain)
             }
             .padding(.horizontal, 25)
             .padding(.bottom, 25)
@@ -69,10 +71,21 @@ struct AllDone: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
         .preferredColorScheme(.dark)
+
+        // Open Set Reminder
+        .sheet(isPresented: $showSetReminder) {
+            SetReminderView { _ in
+                // Save action will be connected later
+            }
+            .presentationDetents([.large])
+            .presentationDragIndicator(.hidden)
+            .presentationBackground(.black)
+        }
     }
 }
 
 #Preview {
-    AllDone()
+    NoReminders()
+        .preferredColorScheme(.dark)
 }
 
