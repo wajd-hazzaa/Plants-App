@@ -202,5 +202,3 @@ final class NotificationManager {
         )
     }
 }
-
-

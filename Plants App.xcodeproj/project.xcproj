@@ -12,7 +12,7 @@
   },
   "files": [
     { "kind": "folder", "path": "Plants App", "target-membership": [ "Plants App" ] },
-    { "path": "All Done.swift", "target-membership": [ "Plants App/compile-sources" ] },
+    { "path": "All Done.swift" },
     {
       "kind": "group",
       "name": "Products",
@@ -39,6 +39,7 @@
         "ENABLE_PREVIEWS": "YES",
         "ENABLE_USER_SELECTED_FILES": "readonly",
         "GENERATE_INFOPLIST_FILE": "YES",
+        "INFOPLIST_KEY_CFBundleDisplayName": "Planto",
         "INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]": "YES",
         "INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]": "YES",
         "INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]": "YES",
