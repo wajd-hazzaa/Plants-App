@@ -39,19 +39,6 @@ Planto features a clean and modern dark interface with green accents. The design
 ⸻
 
 📱 App Screenshots
-✨ Features
-
-* 🌱 Add Plants: Add plants with their name, room, light requirements, watering frequency, and water amount.
-* ✏️ Edit Plants: Update plant information whenever needed.
-* 🗑️ Delete Plants: Remove plants from your collection.
-* 📊 Daily Progress: Track daily plant care activities through a progress bar.
-* 💧 Mark as Completed: Mark a plant as watered once its care task is completed.
-* 🔔 Local Notifications: Receive watering reminders to maintain a consistent routine.
-* 🪴 Plant Organization: View and manage all your plants in one place.
-
-⸻
-
-📱 App Screenshots
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4d039445-c061-4ee8-acfd-f17cce5b4aa7" width="200" alt="Planto Screen 1"/>
